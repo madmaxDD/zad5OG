@@ -6,6 +6,7 @@ const email = document.getElementById("email")
 const form = document.getElementById("form")
 const nickMessagesEl = document.getElementById("nick-messages")
 
+
 form.addEventListener("submit", (e) => {
     const nickMessages = []
     if (nick.value === "" || nick.value == null) {

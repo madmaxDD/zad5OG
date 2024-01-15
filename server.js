@@ -17,9 +17,34 @@ app.get('/', (req, res) => {
   res.render('form', { errors: null });
 });
 
+const users = []
+app.get('/results', (req, res) =>{
+  console.log(users)
+
+  res.json(users)
+})
+
+let id = 1
 app.post('/submit2', (req, res) => {
-  res.send('POST request to the homepage')
-  res.redirect(__dirname + "/public/arena.html")
+  const { nick, age, email } = req.body;
+  users.push({...req.body, id})
+  id++
+  const url = `/result.html`;
+  res.redirect('' + url)
+  return
+})
+
+app.delete('/results/:id', (req,res)=>{
+   const resourceId = req.params.id;
+   const index = users.findIndex(user =>{
+    return user.id === resourceId
+   })
+   console.log(index)
+   if(index = -1){
+    console.log("-1")
+   }else{
+    users.splice(index, 1)
+   }
 })
 
 app.post('/submit', [
