@@ -3,3 +3,5 @@ Date and Time: 17.12.2023, 15:12:32	Method: POST	URL: /submit	Error: Imię musi 
 Date and Time: 17.12.2023, 15:15:37	Method: POST	URL: /submit	Error: Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20	
 Date and Time: 15.01.2024, 10:52:28	Method: POST	URL: /submit	Error: Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20	Musisz mieć co najmniej 18 lat, ale też nie więcej niż 100 xd	Niepoprawny format adresu email.	
 Date and Time: 15.01.2024, 11:34:42	Method: POST	URL: /submit	Error: Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20	Musisz mieć co najmniej 18 lat, ale też nie więcej niż 100 xd	Niepoprawny format adresu email.	
+Date and Time: 15.01.2024, 17:39:57	Method: POST	URL: /submit	Error: Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20	Musisz mieć co najmniej 18 lat, ale też nie więcej niż 100 xd	Niepoprawny format adresu email.	
+Date and Time: 15.01.2024, 17:40:19	Method: POST	URL: /submit	Error: Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20	Musisz mieć co najmniej 18 lat, ale też nie więcej niż 100 xd	Niepoprawny format adresu email.	

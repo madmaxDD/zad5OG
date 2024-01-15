@@ -8,7 +8,7 @@ const fs = require('fs');
 const app = express();
 const port = 3000;
 
-app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static('public'))
 app.set('view engine', 'ejs');
 app.set('views', path.join(__dirname, 'views'));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -16,6 +16,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.get('/', (req, res) => {
   res.render('form', { errors: null });
 });
+
+app.post('/submit2', (req, res) => {
+  res.send('POST request to the homepage')
+  res.redirect(__dirname + "/public/arena.html")
+})
 
 app.post('/submit', [
   check('imie').isLength({ min: 2, max:20 }).withMessage('Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20'),
@@ -42,6 +47,7 @@ app.post('/submit', [
     console.log('write complete')
     })
   }
+
 
 
   if (errors.isEmpty()) {
