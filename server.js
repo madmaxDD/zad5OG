@@ -21,7 +21,7 @@ const users = []//dane w globalnej zmiennej
 
 
 let id = 1
-app.post('/submit2',[
+app.post('/submit',[
   check('nick').isLength({ min: 2, max:20 }).withMessage('Nick must contain between 2 and 20 characters'),
   check('age').custom(value => {
     if (isNaN(value) || value < 18 || value >100) {
@@ -50,15 +50,15 @@ app.get('/results', (req, res) =>{//endpoint do pobierania danych
 
 app.delete('/results/:id', (req,res)=>{
    const resourceId = req.params.id;
+  
    const index = users.findIndex(user =>{
-    return user.id === resourceId
+    return parseInt(user.id) === parseInt(resourceId)
    })
-   console.log(index)
-   if(index = -1){
-    console.log("-1")
-   }else{
+ 
+   if(index !== -1){
     users.splice(index, 1)
    }
+   res.json(users)
 })
 /*
 app.post('/submit', [

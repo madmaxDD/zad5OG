@@ -1,7 +1,7 @@
 //frontend stuff
 
 const nick = document.getElementById("nick")
-const age = parseInt(document.getElementById("age"))
+const age = document.getElementById("age")
 const email = document.getElementById("email")
 const form = document.getElementById("form")
 const nickMessagesEl = document.getElementById("nick-messages")
@@ -24,20 +24,22 @@ form.addEventListener("submit", (e) => {
     if (nickMessages.length > 0) {
         nickMessagesEl.innerText = nickMessages.join(", ")
         e.preventDefault()
-    }else {
+    } else {
         nickMessagesEl.innerText = ""; // Wyczyść komunikat, jeśli nie ma błędów
     }
 
-    if ((age.valueOf === "" || age.valueOf == null)) {
+    console.log(age.value)
+    if ((age.value === "" || age.value == null)) {
         ageMessages.push("age cant be empty")
-    }else if (age.valueOf > 100 || age.valueOf <18) {
+    } else if (parseInt(age.value) > 100 || parseInt(age.value)  < 18) {
         ageMessages.push("you must be 18 or older, but not tooo old (max age 100)")
+        console.log(age.value)
     }
 
     if (ageMessages.length > 0) {
         ageMessagesEl.innerText = ageMessages.join(", ")
         e.preventDefault()
-    }else {
+    } else {
         ageMessagesEl.innerText = ""; // Wyczyść komunikat, jeśli nie ma błędów
     }
 
@@ -50,7 +52,7 @@ form.addEventListener("submit", (e) => {
     if (emailMessages.length > 0) {
         emailMessagesEl.innerText = emailMessages.join(", ")
         e.preventDefault()
-    }else {
+    } else {
         emailMessagesEl.innerText = ""; // Wyczyść komunikat, jeśli nie ma błędów
     }
 }) 
