@@ -54,7 +54,7 @@ app.delete('/results/:id', (req,res)=>{
     users.splice(index, 1)
    }
 })
-
+/*
 app.post('/submit', [
   check('imie').isLength({ min: 2, max:20 }).withMessage('Imię musi zawierać co najmniej 2 znaki i nie więcej niż 20'),
   check('wiek').custom(value => {
@@ -90,7 +90,7 @@ app.post('/submit', [
   });
 });
 
-
+*/
 
 app.listen(port, () => {
   console.log(`Serwer działa na porcie ${port}`);
