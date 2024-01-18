@@ -17,11 +17,8 @@ app.get('/', (req, res) => {
   res.render('form', { errors: null });
 });
 
-const users = []
-app.get('/results', (req, res) =>{
-  console.log(users)
-  res.json(users)
-})
+const users = []//dane w globalnej zmiennej 
+
 
 let id = 1
 app.post('/submit2',[
@@ -35,11 +32,20 @@ app.post('/submit2',[
   check('email').isEmail().withMessage('wrong email format'),
 ], (req, res) => {
   const { nick, age, email } = req.body;
-  users.push({...req.body, id})
+  if (!nick || !age || !email) {
+    return res.status(400).send('All form fields are required.');
+  }
+
+  users.push({...req.body, id})//zapisanie danych po stronie backendu
   id++
   const url = `/result.html`;
   res.redirect('' + url)
   return
+})
+
+app.get('/results', (req, res) =>{//endpoint do pobierania danych
+  console.log(users)
+  res.json(users)
 })
 
 app.delete('/results/:id', (req,res)=>{
