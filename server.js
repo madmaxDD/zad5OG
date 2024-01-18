@@ -25,7 +25,16 @@ app.get('/results', (req, res) =>{
 })
 
 let id = 1
-app.post('/submit2', (req, res) => {
+app.post('/submit2',[
+  check('nick').isLength({ min: 2, max:20 }).withMessage('Nick must contain between 2 and 20 characters'),
+  check('age').custom(value => {
+    if (isNaN(value) || value >= 18 || value <100) {
+      throw new Error('age must be between 18 and 100');
+    }
+    return true;
+  }),
+  check('email').isEmail().withMessage('wrong email format'),
+], (req, res) => {
   const { nick, age, email } = req.body;
   users.push({...req.body, id})
   id++
