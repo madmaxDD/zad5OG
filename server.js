@@ -20,7 +20,6 @@ app.get('/', (req, res) => {
 const users = []
 app.get('/results', (req, res) =>{
   console.log(users)
-
   res.json(users)
 })
 
@@ -28,7 +27,7 @@ let id = 1
 app.post('/submit2',[
   check('nick').isLength({ min: 2, max:20 }).withMessage('Nick must contain between 2 and 20 characters'),
   check('age').custom(value => {
-    if (isNaN(value) || value >= 18 || value <100) {
+    if (isNaN(value) || value < 18 || value >100) {
       throw new Error('age must be between 18 and 100');
     }
     return true;
@@ -81,8 +80,6 @@ app.post('/submit', [
     console.log('write complete')
     })
   }
-
-
 
   if (errors.isEmpty()) {
      return res.render('results', { imie, wiek, email }); 
