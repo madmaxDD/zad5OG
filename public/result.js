@@ -18,10 +18,6 @@ function deleteUser(id) {
         method: "DELETE",
     }).then(() => { 
         downloadData()
-        // Znajdujemy element o podanym id
-        //const element = document.getElementById(id);
-        // Usuwamy element z DOM-u
-        //element.parentNode.removeChild(element);
     })
 }
 
