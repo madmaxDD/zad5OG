@@ -54,7 +54,7 @@ app.delete('/results/:id', (req,res)=>{
    const index = users.findIndex(user =>{
     return parseInt(user.id) === parseInt(resourceId)
    })
- 
+   
    if(index !== -1){
     users.splice(index, 1)
    }

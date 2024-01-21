@@ -47,7 +47,7 @@ function generateHTML(users) {
           <td>${user.age}</td>
           <td>${user.email}</td>
           <td>
-            <button onclick="deleteUser('${user.id}')">Usuń</button>
+            <button onclick="deleteUser('${user.id}')">DELETE</button>
           </td>
         </tr>
       `)}
